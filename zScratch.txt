@@ -5,3 +5,35 @@ need to work out
 
     TagRouter returns null, not taking in the review/category to tag up
     
+
+    retest tag router, added associations in models/tag.js
+
+    ACCOUNT MODEL: need to make a migration changing user_id datatype from string to integer
+
+
+TODO LIST
+    PAGES
+        Registration Page 
+            want to have em flexed so they stack
+        Login Page
+        Landing Page
+        Home
+        Browse Reviews
+        Create/Edit Reviews
+COMPONENTS
+    Layout
+    Nav
+        Sign up has a box around it 
+        Yikes is centered left with text styling
+
+
+    Check Tag Router again
+    Check Login User again
+
+
+COLOR PALETTE
+    #8C2034 pinkish red
+    #6f5858 beige brown
+    #2c21b maroon
+    #ed8a0c pink, good for highlights
+    #6b1629 another more red pinkish red

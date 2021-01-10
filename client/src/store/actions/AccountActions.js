@@ -1,5 +1,7 @@
 import {CREATE_ACCOUNT, GET_ACCOUNT, GET_ALL_ACCOUNTS, EDIT_ACCOUNT, GET_ACCOUNT_BY_USER} from '../types'
 import {__CreateAccount, __EditAccount, __GetAccount, __GetAccountByUserId, __GetAllAccounts} from '../../services/AccountServices'
+
+
 export const CreateAccount = (formData) => async (dispatch) => {
     try {
         let response = await __CreateAccount(formData)

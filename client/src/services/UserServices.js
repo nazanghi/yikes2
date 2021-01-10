@@ -1,7 +1,8 @@
 import ApiClient from "./ApiServices"
-export const __LoginUser = async () => {
+
+export const __LoginUser = async (formData) => {
     try {
-        const response = await ApiClient.post("/user/login", userData)
+        const response = await ApiClient.post("/user/login", formData)
         localStorage.setItem("token", response.data.token)
         console.log("__LoginUser hits")
         return response
@@ -10,9 +11,10 @@ export const __LoginUser = async () => {
         throw error
     }
 }
-export const __CreateUser = async () => {
+
+export const __CreateUser = async (formData) => {
     try {
-        const response = await ApiClient.post("/user/register", userData)
+        const response = await ApiClient.post("/user/register", formData)
         console.log("__CreateUser hits")
         return response.data
     } catch (error) {
@@ -20,7 +22,8 @@ export const __CreateUser = async () => {
         throw error
     }
 }
-export const __GetUser = async () => {
+
+export const __GetUser = async (userId) => {
     try {
         const response = await ApiClient.get(`/user/${userId}`)
         console.log("__GetUser hits")
@@ -30,17 +33,18 @@ export const __GetUser = async () => {
         throw error
     }
 }
-export const __CheckSession = async () => {
-    try {
-        const response = await ApiClient.get("/user/session", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        return response.data
-    } catch (error) {
-        console.log('__CheckSession fails')
-        throw error
-    }
-}
+
+// export const __CheckSession = async () => {
+//     try {
+//         const response = await ApiClient.get("/user/session", {
+//             headers: {
+//                 Authorization: `Bearer ${token}`
+//             }
+//         })
+//         return response.data
+//     } catch (error) {
+//         console.log('__CheckSession fails')
+//         throw error
+//     }
+// }
  

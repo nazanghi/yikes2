@@ -1,4 +1,5 @@
 import {CREATE_TAG, GET_TAG, GET_REVIEW_TAGS, FETCH_BY_CATEGORY, DELETE_TAG_INSTANCE} from '../types'
+
 const initialState = {
     tags: [],
     newTag: {
@@ -22,3 +23,5 @@ const TagReducer = (state = initialState, action) => {
             return {...state}
     }   
 }
+
+export default TagReducer
