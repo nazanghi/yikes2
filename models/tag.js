@@ -8,11 +8,28 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Tag.init({
-    review_id: DataTypes.INTEGER,
-    category_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Tag',
+    review_id: {
+      type: DataTypes.INTEGER,
+    field: "review_id",
+    references: {
+      model: "reviews",
+      key: "id"
+      },
+    allowNull: false
+    },
+    category_id: { 
+      type:DataTypes.INTEGER,
+      field: "category_id",
+      references: {
+        model: "category",
+        key: "id"
+      },
+      allowNull: false
+      }, 
+    }, {
+      sequelize,
+      modelName: 'Tag',
+      tableName: 'tags'
   });
   return Tag;
 };

@@ -1,9 +1,11 @@
 import {CHANGE_EMAIL_INPUT, CHANGE_PASSWORD_INPUT} from '../types'
+
+
 const initialState = {
     inputEmail: '',
     inputPassword: ''
 }
-const AuthReducer = (state = initialState, action => {
+const AuthReducer = (state = initialState, action) => {
     switch(action.type) {
         case CHANGE_EMAIL_INPUT:
             return {...state, inputEmail: action.payload}
@@ -12,5 +14,5 @@ const AuthReducer = (state = initialState, action => {
         default:
             return {...state}
     }
-})
+}
 export default AuthReducer

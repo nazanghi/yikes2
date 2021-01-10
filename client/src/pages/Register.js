@@ -1,24 +1,35 @@
 import {createUser} from '../store/actions/UserActions'
 import {changeEmailInput, changePasswordInput} from '../store/actions/AuthActions'
-import {CreateAccount} from '../store/actions/AccountActions'
-import React from 'react'
+import React  from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {Button, TextField} from 'react-md'
+import TextField from "@material-ui/core/TextField";
+import Button from '@material-ui/core/Button'
+import { makeStyles } from "@material-ui/core/styles";
+
 
 const mapStateToProps = ({authState}) => {
     return (
         authState
-    )
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        changeEmailInput: (input) => dispatch(changeEmailInput(input)),
-        changePasswordInput: (input) => dispatch(changePasswordInput(input)),
-        createUser: (formData) => dispatch(createUser(formData))
+        )
+    }
+    
+    const mapDispatchToProps = (dispatch) => {
+        return {
+            changeEmailInput: (input) => dispatch(changeEmailInput(input)),
+            changePasswordInput: (input) => dispatch(changePasswordInput(input)),
+            createUser: (formData) => dispatch(createUser(formData))
     }
 }
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      "& .MuiTextField-root": {
+        margin: theme.spacing(1),
+        width: "25ch"
+      }
+    }
+  }));
 
 const Register = (props) => {
 
@@ -49,20 +60,23 @@ const Register = (props) => {
             <form onSubmit = {handleSubmit}>
                 <h3>Sign Up</h3>
                 <TextField
-                    placeholder="EMAIL"
-                    title="EMAIL"
-                    name="email"
-                    type="email"
-                    onChange={handleEmailChange}
+                required
+                id="standard-required"
+                label="Email"
+                defaultValue=""
+                onChange={handleEmailChange}
                 />
                 <TextField
-                    placeholder="password"
-                    title="password"
-                    name="password"
-                    type="password"
-                    onChange={handlePasswordChange}
+                required
+                id="standard-required"
+                label="Password"
+                defaultValue=""
+                type="password"
+                onChange={handlePasswordChange}
                 />
+                <Button type ="submit" theme="primary" themeType="contained" disableElevation>Join the Party.</Button>
             </form>
         </section>
     )
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

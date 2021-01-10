@@ -65,7 +65,7 @@ export const GetAllReviews = () => async(dispatch) => {
         throw error
     }
 }
-export const GetReviewsByUser = (userId) => {
+export const GetReviewsByUser = (userId) => async(dispatch) => {
     try {
         let response = await __GetReviewsByUser(userId)
         dispatch ({
