@@ -1,7 +1,7 @@
 import {createUser} from '../store/actions/UserActions'
 import {changeEmailInput, changePasswordInput} from '../store/actions/AuthActions'
 import {CreateAccount} from '../store/actions/AccountActions'
-import React, {useEffect}  from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Button, TextField} from 'react-md'
