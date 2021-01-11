@@ -24,11 +24,11 @@ const NewAccount = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
-            // props.createAccount({
-            //     username: props.accountState.username,
-            //     job: props.accountState.job,
-            //     about: props.accountState.about
-            // })
+            props.createAccount({
+                username: props.accountState.username,
+                job: props.accountState.job,
+                about: props.accountState.about
+            })
             props.history.push('/login')
         } catch(error) {
             console.log('Pages/CreateAccount: handleSubmit Fails')
