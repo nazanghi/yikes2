@@ -9,9 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 
 const mapStateToProps = ({authState}) => {
-    return (
+    return {
         authState
-        )
+        }
     }
     
     const mapDispatchToProps = (dispatch) => {
@@ -35,6 +35,7 @@ const Register = (props) => {
 
     const handleEmailChange = ({target}) => {
         props.changeEmailInput(target.value)
+        console.log(props.authState)
     }
 
     const handlePasswordChange= ({target}) => {
@@ -48,6 +49,8 @@ const Register = (props) => {
                 email: props.authState.inputEmail,
                 password: props.authState.inputPassword
             })
+
+    
             props.history.push('/login')
         } catch(error) {
             console.log('Pages/Register: handleSubmit Fails')

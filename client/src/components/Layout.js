@@ -7,10 +7,8 @@ import Nav from './Nav'
 export default ({children}) => {
     return ( 
         <section>
-            <h3>This is the layout!</h3>
             <Nav/>
             <div>{children}</div>
         </section>
     )
-    
 }

@@ -74,7 +74,7 @@ const NewReview = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         try {
-            //come back to this
+            
             console.log('pages/CreateReview: handleSubmit hits. Props: ', props)
         }catch(error){
             console.log('pages/CreateReview: handleSubmit fails.')
@@ -125,7 +125,7 @@ const NewReview = (props) => {
                     id = "standard"
                     label = "Link to a Review"
                 />
-                <Button>Submit</Button>
+                <Button onClick = {handleSubmit}>Submit</Button>
             </form>
         </section>
     )

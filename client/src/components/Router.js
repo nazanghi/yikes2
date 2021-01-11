@@ -10,6 +10,7 @@ import Register from '../pages/Register'
 import EditAccount from '../pages/EditAccount'
 import CreateReview from '../pages/CreateReview'
 import EditReview from '../pages/EditReview'
+import BrowseReviews from '../pages/BrowseReviews'
 
 const Router = () => {
 
@@ -41,10 +42,10 @@ const Router = () => {
                         path = "/editaccount"        
                         component = {EditAccount}
                     />
-                    {/* <Route
+                    <Route
                         path = "/reviews"
                         component= {BrowseReviews}
-                    /> */}
+                    />
                     <Route
                         path = "/createreview"
                         component = {CreateReview}

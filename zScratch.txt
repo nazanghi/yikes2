@@ -37,3 +37,8 @@ COLOR PALETTE
     #2c21b maroon
     #ed8a0c pink, good for highlights
     #6b1629 another more red pinkish red
+
+
+NonAuth
+    still await user find One where email=email
+    

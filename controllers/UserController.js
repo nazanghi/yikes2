@@ -1,5 +1,4 @@
 const {hashPassword, passwordValid, createToken} = require('../middleware')
-//Need to make models
 const {User} = require('../models')
 
 const CreateUser = async (request, response) => {
@@ -11,6 +10,36 @@ const CreateUser = async (request, response) => {
         response.send(user)
     }catch(error) {
         console.log('CreateUser fails')
+        throw error
+    }
+}
+
+const DummyCreate = async (request, response) => {
+    try{ 
+        const {email, password} = request.body
+        const user = await User.create({email, password})
+        console.log("UserController: DummyCreate hits")
+        response.send(user)
+    }catch (error) {
+        console.log("UserController: DummyCreate fails")
+        throw error
+    }
+}
+
+const DummyLogin = async (request, response) => {
+    try{
+        const user = await User.findOne({
+            where: {email: request.body.email}
+        })
+        if (request.body.password === user.password){
+            console.log("UserController: DummyLogin hits")
+            return response.send(user)
+        } else {
+            console.log("UserController: DummyLogin hits")
+            return response.status(401).send({message: 'Wrong Password!'})
+        }
+    }catch (error) {
+        console.log("UserController: DummyLogin fails")
         throw error
     }
 }
@@ -63,5 +92,7 @@ module.exports = {
     CreateUser,
     GetUser,
     LoginUser,
-    SessionStatus
+    SessionStatus,
+    DummyCreate,
+    DummyLogin
 }

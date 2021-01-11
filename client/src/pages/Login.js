@@ -4,20 +4,21 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 
 const mapStateToProps = ({authState}) => {
-    return (
+    return {
         authState
-        )
     }
+}
     
-    const mapDispatchToProps = (dispatch) => {
-        return {
-            changeEmailInput: (input) => dispatch(changeEmailInput(input)),
-            changePasswordInput: (input) => dispatch(changePasswordInput(input)),
-            getUser: (formData) => dispatch(getUser(formData))
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeEmailInput: (input) => dispatch(changeEmailInput(input)),
+        changePasswordInput: (input) => dispatch(changePasswordInput(input)),
+        getUser: (formData) => dispatch(getUser(formData))
     }
 }
 
@@ -43,7 +44,7 @@ const LoginPage = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
-            props.createUser({
+            props.getUser({
                 email: props.authState.inputEmail,
                 password: props.authState.inputPassword
             })
@@ -73,7 +74,9 @@ const LoginPage = (props) => {
                 type="password"
                 onChange={handlePasswordChange}
                 />
+            <Button onClick ={handleSubmit}>Log In</Button>
             </form>
+            
         </section>
     )
 }
