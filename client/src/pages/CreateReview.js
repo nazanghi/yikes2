@@ -112,9 +112,9 @@ const NewReview = (props) => {
                 title: formData.inputTitle
             })
             props.history.push('/reviews')
-            console.log('pages/CreateReview: handleSubmit hits. Props: ', props)
+            // console.log('pages/CreateReview: handleSubmit hits. Props: ', props)
         }catch(error){
-            console.log('pages/CreateReview: handleSubmit fails.')
+            // console.log('pages/CreateReview: handleSubmit fails.')
             throw error
         }
     }

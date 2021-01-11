@@ -51,7 +51,7 @@ const NewAccount = (props) => {
             })
             props.history.push('/createreview')
         } catch(error) {
-            console.log('Pages/CreateAccount: handleSubmit Fails')
+            // console.log('Pages/CreateAccount: handleSubmit Fails')
             throw error
         }
     }

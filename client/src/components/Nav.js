@@ -31,13 +31,21 @@ const Nav = (props) => {
     return props.userState.authenticated ? (
         <header>
             <nav>
-                <NavLink
-                  to="/"
-                  onClick={handleLogout()}
-                >
-                <h3>Sign Out</h3>
+              <Button onClick = {handleLogout()}>
+                <NavLink to="/">
+                  <h5>Sign Out</h5>
                 </NavLink>
-                <h1 className ="nav-title"><NavLink to="/reviews">Browse Reviews</NavLink></h1>
+              </Button>
+              <Button>
+                <NavLink to = "/createreview">
+                  <h5>Make a new Review</h5>
+                </NavLink>
+              </Button>
+              <Button>
+                <NavLink to = "/review">
+                  <h5>Browse Reviews</h5>
+                </NavLink>
+              </Button>
             </nav>
         </header>
         ) : (
@@ -45,14 +53,20 @@ const Nav = (props) => {
             <nav>
                 <div className="navbar-signing">
                       <Button>
-                          <NavLink to="/register">
-                              <h3>Sign Up</h3>
-                          </NavLink>
+                        <NavLink to="/register">
+                            <h5>Sign Up</h5>
+                        </NavLink>
                       </Button>
-                  <NavLink to="/login">
-                    <h3>Sign In</h3>
-                  </NavLink>
-                  <h1 className="nav-title"><a href='/'>Yikes</a></h1>
+                      <Button>
+                        <NavLink to="/login">
+                          <h5>Sign In</h5>
+                        </NavLink>
+                      </Button>
+                      <Button>
+                        <NavLink to = "/review">
+                          <h5>Browse Reviews</h5>
+                        </NavLink>
+                      </Button>
                 </div>
             </nav>
         </header>
