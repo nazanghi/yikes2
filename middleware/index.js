@@ -4,14 +4,14 @@ require('dotenv').config()
 
 const SALT_ROUNDS = process.env.SALT_ROUNDS
 const APP_SECRET = process.env.APP_SECRET
-//need ot add these to the .env
+
 
 const hashPassword = async (password) => {
     /**
      * @param {password}
      */
     try{
-        const hashedPassword = await bcrypt.hash(password, parseInt(SALT_ROUNDS))
+        const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS)
         console.log('password hash hits')
         return hashedPassword
     }catch(error){

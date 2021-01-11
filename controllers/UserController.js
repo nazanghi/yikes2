@@ -44,15 +44,17 @@ const LoginUser = async (request, response) => {
             where: {email: request.body.email},
             raw: true
         })
+        console.log("User:", user)
         if (user && (await passwordValid(request.body.password, user.password))) {
             let payload = {
-                _id: user.id
+                id: user.id
             }
             let token = createToken(payload)
             return response.send({user, token})
         }
         return (response.status(401).send({message:`Wrong Password!`}))
     } catch (error){
+        console.log('LoginUser: user.password')
         console.log('Login User fails')
         throw error
     }
