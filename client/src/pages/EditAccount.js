@@ -30,7 +30,7 @@ const NewAccountDetails = (props) => {
             // })
             props.history.push('/')
         } catch(error) {
-            console.log('Pages/CreateAccount: handleSubmit Fails')
+            // console.log('Pages/CreateAccount: handleSubmit Fails')
             throw error
         }
     }
@@ -62,7 +62,7 @@ const NewAccountDetails = (props) => {
                     variant="outlined"
                 />
             </form>
-            <Button>Submit</Button>
+            <Button>Su`bmit</Button>
         </section>
     )
 }

@@ -8,9 +8,9 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 
-const mapStateToProps = ({authState}) => {
+const mapStateToProps = ({authState, userState}) => {
     return {
-        authState
+        authState, userState
     }
 }
     
@@ -41,6 +41,10 @@ const LoginPage = (props) => {
         props.changePasswordInput(target.value)
     }
 
+    const handleAuthenticated = (value) => {
+        props.userState.authenticated = (value)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
@@ -48,6 +52,7 @@ const LoginPage = (props) => {
                 email: props.authState.inputEmail,
                 password: props.authState.inputPassword
             })
+            handleAuthenticated(true)
             props.history.push('/home')
         } catch(error) {
             console.log('Pages/login: handleSubmit Fails')

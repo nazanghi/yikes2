@@ -8,7 +8,9 @@ const LandingPage = (props) => {
             <Link to = {`/reviews/`}>
                 <h2>Browse Reviews</h2>
             </Link>
+            <Link to ={`/register/`}>
             <h2>Or Create an Account</h2>
+            </Link>
         </section>
     )
 }

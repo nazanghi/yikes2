@@ -8,9 +8,9 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from "@material-ui/core/styles";
 
 
-const mapStateToProps = ({authState}) => {
+const mapStateToProps = ({authState, userState}) => {
     return {
-        authState
+        authState, userState
         }
     }
     
@@ -42,6 +42,10 @@ const Register = (props) => {
         props.changePasswordInput(target.value)
     }
 
+    const handleAuthenticated = () => {
+        props.userState.authenticated = true
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
@@ -49,9 +53,9 @@ const Register = (props) => {
                 email: props.authState.inputEmail,
                 password: props.authState.inputPassword
             })
+            handleAuthenticated()
+            props.history.push('/createaccount')
 
-    
-            props.history.push('/login')
         } catch(error) {
             console.log('Pages/Register: handleSubmit Fails')
             throw error
@@ -77,7 +81,15 @@ const Register = (props) => {
                 type="password"
                 onChange={handlePasswordChange}
                 />
-                <Button type ="submit" theme="primary" themeType="contained" disableElevation>Join the Party.</Button>
+                <Button 
+                    type ="submit" 
+                    theme="primary" 
+                    themetype="contained" 
+                    disableElevation
+                    onClick = {handleSubmit}
+                >
+                    Set Up Your Account
+                </Button>
             </form>
         </section>
     )

@@ -58,29 +58,68 @@ value: PropTypes.number.isRequired,
 
 
 const mapStateToProps = ({reviewState}) => {
-    return (
+    return {
         reviewState
-    )
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        CreateReview: (formData) => dispatch(CreateReview(formData))
+        CreateReview: (newReview) => dispatch(CreateReview(newReview))
     }
 }
 
 const NewReview = (props) => {
 
+    let formData = {
+        inputContent: '',
+        inputLink: '',
+        inputLocation: '',
+        inputRating: '',
+        inputTitle: ''
+    }
+
+    const handleContentChange = ({target}) => {
+        formData.inputContent = target.value
+    }
+     
+    const handleLinkChange = ({target}) => {
+        formData.inputLink = target.value
+    }
+     
+    const handleLocationChange = ({target}) => {
+        formData.inputLocation = target.value
+    }
+     
+    const handleRatingChange = ({target}) => {
+        formData.inputRating = target.value
+    }
+     
+    const handleTitleChange = ({target}) => {
+        formData.inputTitle = target.value
+    }
+     
+
     const handleSubmit = (e) => {
         e.preventDefault()
         try {
-            
+            console.log(formData)
+            props.CreateReview({
+                content: formData.inputContent,
+                link: formData.inputLink,
+                location: formData.inputLocation,
+                rating: formData.inputRating,
+                title: formData.inputTitle
+            })
+            props.history.push('/reviews')
             console.log('pages/CreateReview: handleSubmit hits. Props: ', props)
         }catch(error){
             console.log('pages/CreateReview: handleSubmit fails.')
             throw error
         }
     }
+
+    
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -96,14 +135,18 @@ const NewReview = (props) => {
     return (
         <section>
             <form onSubmit = {handleSubmit}>
+
+                <p>Once you make a review, it's there. No editing or deleting, buddy.</p>
                 <h3>Tell Us About Your Experience</h3>
                 <TextField
                 id ="standard"
                 label ="Title it!"
+                onChange = {handleTitleChange}
                 />
                 <TextField
                 id = "standard"
                 label = "Where was it?"
+                onChange ={handleLocationChange}
                 />
                 <Box component="fieldset" mb={3} borderColor="transparent">
                     <Typography component="legend">Rate It!</Typography>
@@ -112,6 +155,7 @@ const NewReview = (props) => {
                         defaultValue={0}
                         getLabelText={(value) => customIcons[value].label}
                         IconContainerComponent={IconContainer}
+                        onChange = {handleRatingChange}
                     />
                 </Box>
                 <TextField
@@ -120,10 +164,12 @@ const NewReview = (props) => {
                     multiline
                     rows = {8}
                     variant ="outlined"
+                    onChange = {handleContentChange}
                 />
                 <TextField
                     id = "standard"
                     label = "Link to a Review"
+                    onChange = {handleLinkChange}
                 />
                 <Button onClick = {handleSubmit}>Submit</Button>
             </form>

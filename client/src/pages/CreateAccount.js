@@ -7,10 +7,10 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from "@material-ui/core/styles";
 
 
-const mapStateToProps = ({accountState}) => {
-    return (
-        accountState
-    )
+const mapStateToProps = ({accountState, userState}) => {
+    return {
+        userState
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -21,15 +21,35 @@ const mapDispatchToProps = (dispatch) => {
 
 const NewAccount = (props) => {
 
+    let formData = {
+        username: '',
+        job: '',
+        about: ''
+    }
+
+    const handleUsernameChange = ({target}) => {
+        formData.username = target.value
+    }
+     
+    const handleJobChange = ({target}) => {
+        formData.job = target.value
+    }
+     
+    const handleAboutChange = ({target}) => {
+        formData.about = target.value
+    }
+     
+
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
-            props.createAccount({
-                username: props.accountState.username,
-                job: props.accountState.job,
-                about: props.accountState.about
+            props.CreateAccount({
+                user_id: props.userState.userInfo.id,
+                username: formData.username,
+                job: formData.job,
+                about: formData.about
             })
-            props.history.push('/login')
+            props.history.push('/createreview')
         } catch(error) {
             console.log('Pages/CreateAccount: handleSubmit Fails')
             throw error
@@ -55,10 +75,12 @@ const NewAccount = (props) => {
                 id="standard"
                 label="Pick a Username"
                 defaultValue=""
+                onChange= {handleUsernameChange}
                 />
                 <TextField                
                     id="standard"
                     label="What Do You Do?"
+                    onChange={handleJobChange}
                 />
                 <TextField
                     id="outlined-multiline-static"
@@ -66,9 +88,10 @@ const NewAccount = (props) => {
                     multiline
                     rows={4}
                     variant="outlined"
+                    onChange={handleAboutChange}
                 />
             </form>
-            <Button>Submit</Button>
+            <Button onClick = {handleSubmit}>Submit</Button>
         </section>
     )
 }
