@@ -25,7 +25,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && cd client && rm -rf build && npm install && npm run build"
   },
   "repository": {
     "type": "git",

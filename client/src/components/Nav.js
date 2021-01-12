@@ -26,8 +26,7 @@ const Nav = (props) => {
     const handleLogout = () => {
       props.userState.authenticated = false
     }
-
-    console.log(props)
+    // console.log(props)
     return props.userState.authenticated ? (
         <header>
             <nav>
