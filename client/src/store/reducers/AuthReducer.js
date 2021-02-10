@@ -1,4 +1,4 @@
-import {CHANGE_EMAIL_INPUT, CHANGE_PASSWORD_INPUT} from '../types'
+import {CHANGE_EMAIL_INPUT, CHANGE_PASSWORD_INPUT} from '../types/AuthTypes'
 
 
 const initialState = {

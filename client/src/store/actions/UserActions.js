@@ -1,4 +1,4 @@
-import {GET_USER, LOGOUT_USER, CREATE_USER} from '../types'
+import {GET_USER, LOGOUT_USER, CREATE_USER} from '../types/UserTypes'
 import {__LoginUser, __CheckSession, __CreateUser} from '../../services/UserServices'
 
 export const getUser = (formData) => async(dispatch) => {

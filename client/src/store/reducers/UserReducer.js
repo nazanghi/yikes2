@@ -1,4 +1,4 @@
-import {GET_USER, LOGOUT_USER, CREATE_USER} from '../types'
+import {GET_USER, LOGOUT_USER, CREATE_USER} from '../types/UserTypes'
 const initialState = {
     userInfo: {},
     authenticated: false

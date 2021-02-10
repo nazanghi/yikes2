@@ -1,0 +1,5 @@
+export const CREATE_TAG = 'CREATE_TAG'
+export const GET_TAG = 'GET_TAG'
+export const FETCH_BY_CATEGORY = 'FETCH_BY_CATEGORY'
+export const GET_REVIEW_TAGS = 'GET_REVIEW_TAGS'
+export const DELETE_TAG_INSTANCE = 'DELETE_TAG_INSTANCE'

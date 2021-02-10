@@ -1,4 +1,4 @@
-import {CREATE_TAG, GET_TAG, GET_REVIEW_TAGS, FETCH_BY_CATEGORY, DELETE_TAG_INSTANCE} from '../types'
+import {CREATE_TAG, GET_TAG, GET_REVIEW_TAGS, FETCH_BY_CATEGORY, DELETE_TAG_INSTANCE} from '../types/TagTypes'
 
 const initialState = {
     tags: [],

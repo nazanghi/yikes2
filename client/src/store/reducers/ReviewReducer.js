@@ -1,4 +1,4 @@
-import {CREATE_REVIEW, GET_ONE_REVIEW, GET_REVIEWS_BY_USER, GET_ALL_REVIEWS, EDIT_REVIEW, DELETE_REVIEW} from '../types'
+import {CREATE_REVIEW, GET_ONE_REVIEW, GET_REVIEWS_BY_USER, GET_ALL_REVIEWS, EDIT_REVIEW, DELETE_REVIEW} from '../types/ReviewTypes'
 const initialState = {
     reviews: [],
     newReview: {

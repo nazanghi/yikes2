@@ -1,4 +1,4 @@
-import {CREATE_ACCOUNT, GET_ACCOUNT, GET_ALL_ACCOUNTS, EDIT_ACCOUNT, GET_ACCOUNT_BY_USER} from '../types'
+import {CREATE_ACCOUNT, GET_ACCOUNT, GET_ALL_ACCOUNTS, EDIT_ACCOUNT, GET_ACCOUNT_BY_USER} from '../types/AccountTypes'
 import {__CreateAccount, __EditAccount, __GetAccount, __GetAccountByUserId, __GetAllAccounts} from '../../services/AccountServices'
 
 

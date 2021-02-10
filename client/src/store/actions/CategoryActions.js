@@ -1,4 +1,4 @@
-import {CREATE_CATEGORY, GET_ALL_CATEGORIES, GET_ONE_CATEGORY} from '../types'
+import {CREATE_CATEGORY, GET_ALL_CATEGORIES, GET_ONE_CATEGORY} from '../types/CategoryTypes'
 import {__CreateCategory, __GetAllCategories, __GetCategory} from '../../services/CategoryServices'
 export const CreateCategory = (formData) => async (dispatch) => {
     try{

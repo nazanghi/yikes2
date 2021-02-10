@@ -1,4 +1,4 @@
-import {CREATE_ACCOUNT, EDIT_ACCOUNT, GET_ACCOUNT, GET_ACCOUNT_BY_USER, GET_ALL_ACCOUNTS} from '../types'
+import {CREATE_ACCOUNT, EDIT_ACCOUNT, GET_ACCOUNT, GET_ACCOUNT_BY_USER, GET_ALL_ACCOUNTS} from '../types/AccountTypes'
 const initialState = {
     accounts: [],
     newAccount: {

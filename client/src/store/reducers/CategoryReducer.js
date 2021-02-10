@@ -1,4 +1,4 @@
-import {CREATE_CATEGORY, GET_ALL_CATEGORIES, GET_ONE_CATEGORY} from '../types'
+import {CREATE_CATEGORY, GET_ALL_CATEGORIES, GET_ONE_CATEGORY} from '../types/CategoryTypes'
 const initialState = {
     categories: [],
     newCategory: ""
